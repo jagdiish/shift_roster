@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>Click the button to list all the items in the array.</p>
+<button onclick="numbers.forEach(myFunc)">Try it</button>
+<p id="demo"></p>
+<script>
+var numbers = [21,42,63,74,45];
+var para = document.getElementById('demo');
+function myFunc(index,item){
+para.innerHTML+=  "Index[" +item+ "] : " +index+ "<br>";
+}
+
+</script>
+</body>
+</html>

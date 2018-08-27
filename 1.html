@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>print p in js</title>
+<style>
+table,tr,td{ border: 1px solid #ccc;}
+</style>
+</head>
+<body>
+<!-- create P tag inside a div in js -->
+<div id="a">Div: </div>
+<div id="divTable">
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--<script>
+function myFunc(){	
+var createP = document.createElement('p');
+var addValP = document.createTextNode('Hello');
+createP.appendChild(addValP);
+document.getElementById('a').appendChild(createP);
+	}
+myFunc();
+</script>-->
+
+<script>
+
+ function createTable() {
+        // Create table.
+        var table = document.createElement('table');
+        // Insert New Row for table at index '0'.
+        var row1 = table.insertRow(0);
+        // Insert New Column for Row1 at index '0'.
+        var row1col1 = row1.insertCell(0);
+        row1col1.innerHTML = 'Col1';
+        // Insert New Column for Row1 at index '1'.
+        var row1col2 = row1.insertCell(1);
+        row1col2.innerHTML = 'Col2';
+        // Insert New Column for Row1 at index '2'.
+        var row1col3 = row1.insertCell(2);
+        row1col3.innerHTML = 'Col3';
+        // Append Table into div.
+        var div = document.getElementById('divTable');
+		
+		
+		
+        div.appendChild(table);
+    }
+createTable();
+/*function myFunction() {
+ var tableName = document.createElement('table');
+ var trow = document.createElement('tr');
+ var td = document.createElement('td');
+ var tdVal = document.createTextNode('My td');
+ td.appendChild(tdVal);
+ trow.appendChild(td);
+ tableName.appendChild(trow);
+ document.getElementById('b').appendChild(tableName);
+ 
+ for(var i=0; i<=5; i++){
+	 var trow = document.createElement('tr');
+	 trow+=""+trow+"";
+	 }
+  tableName.innerHTML= trow;
+}
+myFunction();*/
+</script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JSON-JS</title>
+<style>
+.container { width: 1000px; margin: auto; box-sizing: border-box; }
+.myMenu { width: 40%; border: 1px solid #333; box-sizing: border-box; display: table-cell; }
+.myMenu li { margin: 5px 0; cursor: pointer; }
+.myMenu li a { padding: 
+5px 5px; display: inline-block; }
+.desc { width: 60%; padding: 0 10px; box-sizing: border-box; border: 1px solid #333; border-left: 0; display: table-cell; height: 100%; vertical-align: top; }
+.desc p { display: none; }
+.sub1,.sub2 { display: none; }
+.inner { width: 100%; display: table; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h4>Click the Menu to reveal the description.</h4>
+  <div class="inner">
+    <ul class="myMenu">
+      <li><a href="#1">Guide:</a></li>
+      <li class="parent1">Getting Started:
+        <ul class="sub1">
+          <li><a href="#2">Setting up your Account:</a></li>
+          <li class="parent2">Configure your Account in 3 Simple Steps:
+            <ul class="sub2">
+              <li><a href="#3">Add Primary email</a></li>
+              <li><a href="#4">Add Users</a></li>
+              <li><a href="#5">Rebrand Your Account</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <div class="desc">
+      <p id="1"></p>
+      <p id="2"></p>
+      <p id="3"></p>
+      <p id="4"></p>
+      <p id="5"></p>
+    </div>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+<script type="text/javascript">
+var menuObject = {
+
+    "Guide": "guideContent",
+
+    "Getting Started": {
+
+        "Setting up your Account": "accountContent",
+
+        "Configure your Account in 3 Simple Steps": {
+
+            "Add Primary email": "emailContent",
+
+            "Add Users": "userContent",
+
+            "Rebrand Your Account": "brandContent",
+
+        }
+
+    }
+
+}; 
+
+var descriptionObject = {
+
+    "guideContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+
+     "accountContent": "Non odio euismod lacinia at. Purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae. Sed adipiscing diam donec adipiscing tristique risus.",
+
+    "emailContent": "Viverra mauris in aliquam sem fringilla ut morbi. Duis ultricies lacus sed turpis. Magna eget est lorem ipsum dolor sit amet consectetur. ",
+
+    "userContent": "Arcu vitae elementum curabitur vitae. Volutpat blandit aliquam etiam erat. Dolor morbi non arcu risus quis varius quam.",
+
+    "brandContent": "Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla."
+
+}; 
+// code begins
+
+document.getElementById('1').innerHTML = descriptionObject.guideContent;
+document.getElementById('2').innerHTML = descriptionObject.accountContent;
+document.getElementById('3').innerHTML = descriptionObject.emailContent;
+document.getElementById('4').innerHTML = descriptionObject.userContent;
+document.getElementById('5').innerHTML = descriptionObject.brandContent;
+
+$('.myMenu li a').click(function(){
+	$('.desc p').hide();
+	var getHref = $(this).attr('href');
+	//alert(getHref);
+	$(getHref).show();
+	});
+
+$('.sub1, .sub2').hide();
+$('.parent1').click(function(){
+	$('.sub1').slideToggle();
+	$('.sub2').hide();
+	});	
+
+$('.sub1,.sub2').click(function(){
+	return false;
+});
+
+$('.parent2').click(function(){
+	$('.sub2').slideToggle();
+	});	
+
+/*
+
+$.each( menuObject, function( key, value ) {
+  alert( key + ": " + value );
+});
+
+
+var x;
+x.menuObject;
+document.getElementById('demo').innerHTML = x;*/
+</script>
+</body>
+</html>

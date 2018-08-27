@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<script>
+function armstr()
+{
+	var arm=0,num,mul;
+	num = Number(document.getElementById('number').value);
+	temp = num;
+	
+	while(temp>0){
+		mul = temp%10;
+		temp = parseInt(temp/10);
+		arm = arm+mul*mul*mul;		
+		}
+	if(arm==num){
+		alert('Yes');
+		}	
+	else{alert('No');}
+}
+</script>
+</head>
+<body>
+Enter any Number:
+<input id="number">
+<button onClick="armstr()">Check</button>
+</br>
+</br>
+</body>
+</html>
